@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import WSpatern.LoginWS;
@@ -41,41 +40,41 @@ public class LoginServ extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
-        LoginWS l=new LoginWS();
-        LoginBeans login=new LoginBeans();
-        Encryption enc=new Encryption();
-        ValidTokenWS token_valid=new ValidTokenWS();
+        LoginWS l = new LoginWS();
+        LoginBeans login = new LoginBeans();
+        
+        
         try (PrintWriter out = response.getWriter()) {
             l.getLoginAuth(request.getParameter("username"), request.getParameter("password"));
             String remmber;
-            if(request.getParameter("remmber")==null){
-                remmber="off";
-            }else{
-                remmber="on";
+            if (request.getParameter("remmber") == null) {
+                remmber = "off";
+            } else {
+                remmber = "on";
             }
-            if(l.valid==true){
-                if(remmber.equals("on")){
-                   
-                    Cookie c=new Cookie("username", request.getParameter("username"));
-                    Cookie p=new Cookie("pass",request.getParameter("password"));
+            if (LoginWS.valid == true) {
+                if (remmber.equals("on")) {
+
+                    Cookie c = new Cookie("username", request.getParameter("username"));
+                    Cookie p = new Cookie("pass", request.getParameter("password"));
                     response.addCookie(c);
                     response.addCookie(p);
                 }
-                HttpSession session=request.getSession();
+                HttpSession session = request.getSession();
                 login.setUsername(request.getParameter("username"));
-                login.setExpire(l.expire);
-                login.setTokenId(l.tokekn);
-                login.setUnitId(l.unitId);
-                login.setUserId(l.userId);
-                
+                login.setExpire(LoginWS.expire);
+                login.setTokenId(LoginWS.tokekn);
+                login.setUnitId(LoginWS.unitId);
+                login.setUserId(LoginWS.userId);
+
                 session.setAttribute("loginsession", login);
-               
-               response.sendRedirect("Root.jsp");
-            }else{
-                response.sendRedirect("Login.jsp?");
+
+                response.sendRedirect("mainpage.jsp");
+            } else {
+                response.sendRedirect("Login.jsp?msg="+URLEncoder.encode("Invalid username or password"));
             }
             /* TODO output your page here. You may use following sample code. */
-          
+
         }
     }
 

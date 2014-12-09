@@ -74,8 +74,5 @@ public class ValidTokenWS {
         }
     }
    
-    public static void main(String[] args) {
-        new ValidTokenWS().TokenStats("defbfbdefbfbd4f5eefbfbd1befbfbdefbfbd581eefbfbd157f643befbfbdefbfbdefbfbd23efbfbd37efbfbdefbfbd7a55efbfbd0a49163914");
-        System.out.println("THis"+valid);
-    }
+   
 }

@@ -1,0 +1,203 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
+.clearfix:after { clear: both; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+ul li { list-style: none; }
+
+body { background: #fff; color: #fff; line-height: 1.25; font-family: 'Lato', 'Avenir Next', Arial, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+a { color: #2dbaef; text-decoration: none; outline: none; }
+a:hover, a:focus { color: #373e18; }
+
+.CMD_header {
+margin: 0 auto;
+padding: 1.5em 0em 1.5em;
+text-align: center;
+background: #363e49;
+position: fixed;
+width: 100%;
+}
+
+.CMD_header h1 a {
+color: #707980;
+-webkit-transition: color 0.2s;
+transition: color 0.2s;
+}
+
+h2.aftheader {
+font-weight: 400;
+color: #707980;
+font-size: 16px;
+margin-bottom: 0;
+}
+
+.CMD_header h1 a:hover {
+color: #fff;
+}
+
+
+.CMD_header h1 {
+margin: 0 0px 20px;
+font-weight: 300;
+font-size: 2.5em;
+-webkit-transition: all 0.6s;
+transition: all 0.6s;
+}
+
+.CMD_buy {
+position: absolute;
+top: 49px;
+right: 50px;
+background: #2dbaef;
+padding: 10px 20px 10px 20px;
+border-radius: 5px;
+line-height: 14px;
+font-size: 16px;
+font-weight: 400;
+}
+
+.CMD_buy a{
+ color:#fff;
+}
+
+.CMD_header h1 span {
+	display: block;
+	padding: 0 0 0.6em 0.1em;
+	font-size: 0.6em;
+	opacity: 0.7;
+}
+
+.CMD_effectslist {
+margin: 0 auto;
+padding-top: 138px;
+padding-bottom: 50px;
+}
+
+.demo {
+padding-top: 190px;
+}
+
+#back {
+margin-right: 20px;
+width: 120px;
+background: #707980;
+}
+
+.CMD_content {
+text-align: left;
+color: #707980;
+font-size: 16px;
+padding: 20px;
+}
+
+.CMD_contactinfo {
+text-align: center;
+width: 500px;
+margin: 0 auto;
+}
+
+.CMD_info {
+margin:0;
+padding: 0;
+}
+
+.CMD_info li {
+display: inline-block;
+}
+
+.CMD_info li a{
+color: #9dabb4;
+-webkit-transition: all 0.2s;
+transition: all 0.2s;
+}
+
+.CMD_info li a:hover{
+color: #363e49;
+text-decoration: none;
+}
+
+.CMD_info li i {
+margin-right: 20px;
+}
+
+body > div > section:nth-child(3) > div > ul > li:nth-child(3) > a > i {
+margin-right: 0;
+}
+
+.CMD_grid {
+display: block;
+width: 600px;
+margin: 0 auto;
+-webkit-transition: all 0.6s;
+transition: all 0.6s;
+}
+
+.CMD_grid h1{
+	font-size: 32px;
+	font-weight: 300;
+	color:#343e48;
+}
+
+.CMD_effectslist a, section button {
+font-size: 18px;
+display: block;
+background: transparent;
+color: #9dabb4;
+font-weight: 400;
+padding: 10px 20px;
+margin: 20px auto;
+border-radius: 5px;
+border: 2px solid #9dabb4;
+width: 80%;
+-webkit-transition: all 0.2s;
+transition: all 0.2s;
+}
+
+.CMD_effectslist a:hover,
+.CMD_effectslist a:active, 
+.CMD_effectslist a.current-demo {
+background: #9dabb4;
+color: #fff;
+}
+
+section {
+padding: 1em 2em 2em;
+text-align: center;
+font-size: 1.5em;
+}
+
+section p {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+section button {
+color: #fff;
+font-weight: 200;
+display: inline-block;
+border: none;
+padding: 15px 30px;
+outline: none;
+background: #2fbcf2;
+width: 350px;
+}
+
+@media screen and (max-width: 960px) {
+.CMD_grid {
+width: 300px;
+}
+
+.CMD_contactinfo {
+width: 300px;
+}
+
+.CMD_header h1 {
+margin: 0 0px 20px;
+font-weight: 400;
+font-size: 1.5em;
+}
+section button {
+width: 160px;
+}
+
+}

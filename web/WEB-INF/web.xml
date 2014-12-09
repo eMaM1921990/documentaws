@@ -4,17 +4,72 @@
         <servlet-name>LoginServ</servlet-name>
         <servlet-class>controller.LoginServ</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>controller.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>downloads</servlet-name>
+        <servlet-class>controller.downloads</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendWorkFlow</servlet-name>
+        <servlet-class>controller.SendWorkFlow</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getDownloadLink</servlet-name>
+        <servlet-class>controller.getDownloadLink</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getReview</servlet-name>
+        <servlet-class>controller.getReview</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getDetails</servlet-name>
+        <servlet-class>controller.getDetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServ</servlet-name>
         <url-pattern>/LoginServ</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>downloads</servlet-name>
+        <url-pattern>/downloads</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendWorkFlow</servlet-name>
+        <url-pattern>/SendWorkFlow</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getDownloadLink</servlet-name>
+        <url-pattern>/getDownloadLink</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getReview</servlet-name>
+        <url-pattern>/getReview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getDetails</servlet-name>
+        <url-pattern>/getDetails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-   
     <welcome-file-list>
         <welcome-file>Login.jsp</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
 </web-app>

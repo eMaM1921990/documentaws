@@ -12,6 +12,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,8 +32,9 @@ import org.xml.sax.SAXException;
  * @author emam
  */
 public class SubFolderWS {
-     public static Vector<String> sub_folder=new Vector<String>();
-    public static Vector<String> sub_folder_Id=new Vector<String>();
+     public static List<String> sub_folder=new ArrayList<String>();
+    public static List<String> sub_folder_Id=new ArrayList<String>();
+    
      public void getRoot(String token,String Id){
         try {
             DefaultHttpClient client=new DefaultHttpClient();
@@ -41,7 +44,7 @@ public class SubFolderWS {
             String line = "";
             while ((line = rd.readLine()) != null) {
 
-                System.out.println(line);
+                System.out.println("Sub"+line);
              parseXML(line);
 
             }
@@ -52,6 +55,8 @@ public class SubFolderWS {
     }
      
       private void parseXML(String line) {
+           sub_folder.clear();
+              sub_folder_Id.clear();
         try {
             org.w3c.dom.Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
                     .parse(new InputSource(new StringReader(line)));
@@ -74,13 +79,14 @@ public class SubFolderWS {
         }
     }
      
-     
+ 
+     /*
      public static void main(String[] args) {
        //  RootFolderWS x=new RootFolderWS();
          //x.getRoot("efbfbde982a5efbfbdefbfbd27efbfbd67efbfbd71efbfbddca2efbfbdefbfbd411706efbfbd36685574efbfbdefbfbd3f2defbfbd33efbfbdefbfbd");
-        new SubFolderWS().getRoot("efbfbd55efbfbdefbfbd761befbfbdefbfbd4d0769efbfbd5defbfbdefbfbdefbfbdefbfbdefbfbd67efbfbd135a76153b5befbfbdcebe52efbfbdefbfbd","17271" );
+        new SubFolderWS().getRoot("efbfbdefbfbd76efbfbdefbfbdefbfbd44efbfbd17efbfbd4cefbfbd38efbfbdefbfbd2fefbfbdefbfbd6cefbfbd4114c89eefbfbdefbfbd41efbfbd2902efbfbd","17271" );
         for(int i=0;i<sub_folder.size();i++){
             System.out.println("Folder "+i +"-->" +sub_folder.get(i));
         }
-    }
+    }*/
 }

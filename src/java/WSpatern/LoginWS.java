@@ -12,7 +12,6 @@ import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.text.Document;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.apache.http.HttpResponse;
@@ -31,7 +30,7 @@ import org.xml.sax.SAXException;
 public class LoginWS {
 
      public static String userId ;
-     public static boolean valid ;
+     public static boolean valid=false ;
      public static String tokekn ;
      public static String unitId ;
      public static String expire;
@@ -40,21 +39,26 @@ public class LoginWS {
         try {
             DefaultHttpClient client = new DefaultHttpClient();
             HttpPut putRequest = new HttpPut("https://documenta-dms.com/DMSWS/api/v1/login/");
-            //      HttpPost post = new HttpPost("http://test.documenta.ro/api/api/v1/login/");
+            
             StringEntity input = new StringEntity("<user>\n"
                     + "<username>" + user + "</username>\n"
                     + "<password>" + password + "</password>\n"
                     + "</user>");
             input.setContentType("application/xml");
-
+            System.out.println("Out Put Of WS "+input);
             putRequest.setEntity(input);
             HttpResponse response = client.execute(putRequest);
             BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-            String line = "";
+            String line =null;
             while ((line = rd.readLine()) != null) {
 
                 System.out.println(line);
-                parseXML(line);
+                if(!line.contains("<html>")){
+                    parseXML(line);
+                }else{
+                    valid=false;
+                }
+                
 
             }
         } catch (UnsupportedEncodingException ex) {
@@ -66,8 +70,7 @@ public class LoginWS {
 
     private void parseXML(String line) {
         try {
-            org.w3c.dom.Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-                    .parse(new InputSource(new StringReader(line)));
+            org.w3c.dom.Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new StringReader(line)));
             NodeList response = doc.getElementsByTagName("userToken");
             if (response.getLength() > 0) {
                 Element err = (Element) response.item(0);
@@ -76,6 +79,8 @@ public class LoginWS {
                 unitId=err.getElementsByTagName("unitId").item(0).getTextContent();
                 userId=err.getElementsByTagName("userId").item(0).getTextContent();
                 valid=Boolean.valueOf(err.getElementsByTagName("valid").item(0).getTextContent());
+            }else{
+                valid=false;
             }
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(LoginWS.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,4 +95,6 @@ public class LoginWS {
     public static void main(String[] args) {
         new LoginWS().getLoginAuth("abbas", "abbas");
     }
+    
+   
 }

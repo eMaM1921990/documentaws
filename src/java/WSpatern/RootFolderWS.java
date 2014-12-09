@@ -6,6 +6,8 @@
 
 package WSpatern;
 
+import static WSpatern.SubFolderWS.sub_folder;
+import static WSpatern.SubFolderWS.sub_folder_Id;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -50,6 +52,7 @@ public class RootFolderWS {
      
      
       private void parseXML(String line) {
+          
         try {
             org.w3c.dom.Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
                     .parse(new InputSource(new StringReader(line)));
@@ -68,10 +71,8 @@ public class RootFolderWS {
             Logger.getLogger(LoginWS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+      
+      
      
-     public static void main(String[] args) {
-        new RootFolderWS().getRoot("efbfbdefbfbd387826efbfbdefbfbd2c5c561c5d353702454558efbfbd5c26efbfbdefbfbd2573ca9e63efbfbd0aefbfbd");
-        System.out.println("RootFolder "+Root_folder);
-               System.out.println("RootFolder "+Root_folder_Id);
-    }
+     
 }
