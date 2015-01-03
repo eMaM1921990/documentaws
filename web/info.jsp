@@ -27,7 +27,7 @@
     ValidTokenWS valid = new ValidTokenWS();
 
     ProprestiesFile prop = new ProprestiesFile();
-    DownloadLink download = new DownloadLink();
+
     MetaData meta = new MetaData();
     getFileSecuirty secure = new getFileSecuirty();
     WorkFlow flow = new WorkFlow();
@@ -45,41 +45,15 @@
         valid.TokenStats(login.getToken());
 
         if (valid.valid == true) {
-            flow.getWorkFlow(login.getToken(), request.getParameter("id"));
-            flowid = flow.Flowid;
-            flowname = flow.Flowname;
+
             prop.getProp(login.getToken(), request.getParameter("id"));
             data = prop.prop;
             label = prop.label;
-            download.getLink(login.getToken(), request.getParameter("id"));
-            link = download.download_link;
+
             meta.getMeta(login.getToken(), request.getParameter("id"));
             codAtribut = meta.codAtribut;
             valoare = meta.valoare;
             secure.getSecuirty(login.getToken(), request.getParameter("id"));
-
-            /// Perview 
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpGet httpget = new HttpGet("https://documenta-dms.com/DMSWS/api/v1/file/" + login.getToken() + "/pdf_by_id/" + request.getParameter("id"));
-            HttpResponse responses = httpclient.execute(httpget);
-
-            HttpEntity entity = responses.getEntity();
-            if (entity != null) {
-                long len = entity.getContentLength();
-                InputStream inputStream = entity.getContent();
-
-                File f = new File(request.getRealPath("/fackpath") + "/" + login.getUserId() + "." + request.getParameter("name").substring(0, request.getParameter("name").lastIndexOf(".")) + ".pdf");
-                f.createNewFile();
-
-                FileOutputStream fos = new FileOutputStream(f);
-                int inByte;
-                while ((inByte = inputStream.read()) != -1) {
-                    fos.write(inByte);
-                }
-                inputStream.close();
-                fos.close();
-                // write the file to whether you want it.
-            }
 
         } else {
 
@@ -245,17 +219,8 @@
                         <a onclick="history.go(-1);"><img id="arrowback" src="img/arrow-back.png" alt="Back Arrow" onclick="back()"></a>
                         <p id="actionsButtonP">
                             <span>Actions</span>
-                            <img id="actionsButton" src="img/actions-button.png" alt="Actions Button">
-                        <div id="actionsMenu">
-                            <ul id="actionsMenuUl">
-                                <li><a href="https://<%=link%>">Download</a></li> 
-
-                                <li id="previewTriger">Preview</li>
-                                <li  id="workflowTriger">Send </li>
-                                <li>Collaborate</li>
-                                <li>Versions</li>
-                            </ul>
-                        </div> <!-- #actions-menu -->
+                            <img id="actionsButton" src="img/actions-button.png" alt="Actions Button" onclick="data('<%=request.getParameter("id")%>','<%=request.getParameter("name")%>')">
+                       
                         </p>
                         <div class="clear"></div>
                     </div> <!-- .controlBar -->
@@ -309,31 +274,6 @@
                 </div> <!-- .infoData -->
             </div> <!-- .fileInfo --> 
 
-            <div id="previewOverlay">
-                <div id="previewPopup"><div style="width: 100%; height: 40px; display: block; float: left; position: relative;"><div id="previewPopupX">x</div></div>
-                    <iframe style="width: 100%; height: 530px" src="web/viewer.html?file=../fackpath/<%=login.getUserId() + "." + request.getParameter("name").substring(0, request.getParameter("name").lastIndexOf(".")) + ".pdf"%>#zoom=100"></iframe>
-
-                </div>
-            </div>
-
-            <div id="workflowOverlay">
-                <div id="workflowPopup">
-                    <div style="width: 100%; height: 40px; display: block; float: left; position: relative;">
-                        <div id="workflowPopupX">x</div> </div>
-                    <h2>File Name : <%=request.getParameter("name")%></h2>
-                    <span>Workflow Name:</span>
-                    <select id="workflw">
-                        <%for (int i = 0; i < flowid.size(); i++) {%>
-                        <option value="<%=flowid.get(i)%>"><%=flowname.get(i)%></option>
-                        <%}%>
-                    </select> 
-                    <span>Comments:</span>
-                    <input type="hidden" value="<%=request.getParameter("id")%>" id="fileid"/>
-                    <textarea name="Comments" cols="" rows="" placeholder="Comments" id="comments"></textarea>
-                    <input class="pdr" name="submit" value="Submit" type="button" id="send"/>
-                      
-                </div>
-            </div>
 
 
 
@@ -349,6 +289,39 @@
             </div>
             <a href="#" class="close"><span>X</span></a>
         </div>
+
+
+        <div id="previewOverlay" >
+            <div id="previewPopup"><div style="width: 100%; height: 40px; display: block; float: left; position: relative;"><div id="previewPopupX">x</div></div>
+                <div id="review"></div>
+
+            </div>
+        </div>  
+
+        <div id="workflowOverlay">
+            <div id="workflowPopup">
+
+            </div>
+        </div>
+        <div class="foverlay overlay-slidedown">
+            <button type="button" class="foverlay-close">Close</button>
+
+            <nav>
+                <ul>
+                    <li class="seprator"></li>
+
+
+
+
+                    <li onClick="download()"><a style="cursor: pointer">Download</a></li>
+                    <li ><a style="cursor: pointer" href="#" id="prop">Properties</a></li>
+                    <li onClick="preview()" id="previewTriger" ><a style="cursor: pointer">Preview</a></li>
+                    <li id="workflowTriger"><a href="#">Send to Workflow</a></li>
+                    <li class="seprator"></li>
+                </ul>
+            </nav>
+        </div>
+
         <div class="overlay overlay-slidedown">
             <button type="button" class="overlay-close">Close</button>
 
@@ -392,5 +365,6 @@
         <script src="js/classie.js"></script>
         <script src="js/cmdscriptmin.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/popups.js"></script>
     </body>
 </html>

@@ -18,7 +18,7 @@ $(document).ready(function() {
         var comment=$('#comments').val();
         var file=$('#fileid').val();
         $.get('SendWorkFlow', {id: id,com:comment,fil:file}, function(responseText) {
-            $('#menucatid').hide();
+            document.getElementById("workflowPopup").style.display = "none";
         });
     });
 

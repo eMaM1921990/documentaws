@@ -8,18 +8,10 @@ function mainfunc() {
 	var deviceWidth = document.body.offsetWidth;
     
     var arrowback = document.getElementById('arrowback');
-    var actionsMenu = document.getElementById('actionsMenu');
-    actionsMenu.style.display = "none";
+    //var actionsMenu = document.getElementById('actionsMenu');
+   // actionsMenu.style.display = "none";
     var actionsButton = document.getElementById('actionsButton');
-    var actionsButtonP = document.getElementById('actionsButtonP');
-
-    actionsButtonP.onclick = function(){
-        if (actionsMenu.style.display == "none") {
-        actionsMenu.style.display = "block";
-        }else{
-            actionsMenu.style.display = "none";
-        }
-    }
+    
     /*
 var triger = document.getElementById('triggerInfoOverlay');
     triger.onclick = function(arg){
@@ -116,37 +108,5 @@ if(deviceWidth > 1024){
         whohasaccesDataTriger.style.background = "#000";
         metadataTriger.style.color = "#fff";
         metadataTriger.style.background = "#2DBAEF";
-    }  
-
-    var previewOverlay = document.getElementById("previewOverlay");
-    var previewTriger = document.getElementById("previewTriger");
-    var previewPopup = document.getElementById("previewPopup");
-    var previewPopupX = document.getElementById("previewPopupX");
-
-    previewOverlay.style.display = "none";
-
-    previewTriger.onclick = function(){
-        previewOverlay.style.display ="block";
-    }
-
-    previewPopupX.onclick = function(){
-        previewOverlay.style.display = "none";
-    }
-	
-	
-	var workflowOverlay = document.getElementById("workflowOverlay");
-    var workflowTriger = document.getElementById("workflowTriger");
-    var workflowPopup = document.getElementById("workflowPopup");
-    var workflowPopupX = document.getElementById("workflowPopupX");
-
-    workflowOverlay.style.display = "none";
-
-    workflowTriger.onclick = function(){
-        workflowOverlay.style.display ="block";
-    }
-
-    workflowPopupX.onclick = function(){
-        workflowOverlay.style.display = "none";
-    }
-
+    } 
 } // Main Finction Ends

@@ -28,6 +28,10 @@
         <servlet-name>getDetails</servlet-name>
         <servlet-class>controller.getDetails</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getWorkFlow</servlet-name>
+        <servlet-class>controller.getWorkFlow</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServ</servlet-name>
         <url-pattern>/LoginServ</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>getDetails</servlet-name>
         <url-pattern>/getDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getWorkFlow</servlet-name>
+        <url-pattern>/getWorkFlow</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,28 +5,29 @@
  */
 package controller;
 
+import WSpatern.ValidTokenWS;
+import WSpatern.WorkFlow;
 import bean.LoginBeans;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 
 /**
  *
  * @author emam
  */
-public class getReview extends HttpServlet {
+public class getWorkFlow extends HttpServlet {
+
+    ValidTokenWS valid = new ValidTokenWS();
+    WorkFlow flow = new WorkFlow();
+    List<String> flowid = new ArrayList<String>();
+    List<String> flowname = new ArrayList<String>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -58,35 +59,41 @@ public class getReview extends HttpServlet {
         processRequest(request, response);
         HttpSession session = request.getSession();
         LoginBeans l = (LoginBeans) session.getAttribute("loginsession");
-        /// Perview 
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpGet httpget = new HttpGet("https://documenta-dms.com/DMSWS/api/v1/file/" + l.getToken() + "/pdf_by_id/" + request.getParameter("id"));
-        HttpResponse responses = httpclient.execute(httpget);
 
-        HttpEntity entity = responses.getEntity();
-        if (entity != null) {
-            long len = entity.getContentLength();
-            FileOutputStream fos;
-            try (InputStream inputStream = entity.getContent()) {
-                File f = new File(request.getRealPath("/fackpath") + "/" + l.getUserId() + "." + request.getParameter("name").substring(0, request.getParameter("name").lastIndexOf(".")) + ".pdf");
-                f.createNewFile();
-                fos = new FileOutputStream(f);
-                int inByte;
-                while ((inByte = inputStream.read()) != -1) {
-                    fos.write(inByte);
-                }
-            }
-            fos.close();
-            // write the file to whether you want it.
-        }
-
-        String buffer = "<iframe style='width: 100%; height: 530px' src='web/viewer.html?file=../fackpath/"
-                + l.getUserId() + "."
-                + request.getParameter("name").substring(0, request.getParameter("name").lastIndexOf("."))
-                + ".pdf#zoom=100'></iframe>";
-
-        System.out.println("Buffer :"+buffer);
-        response.getWriter().write(buffer);
+        valid.TokenStats(l.getToken());
+         if (valid.valid == true) {
+             
+             flow.getWorkFlow(l.getToken(), request.getParameter("id"));
+            flowid = flow.Flowid;
+            flowname = flow.Flowname;
+         }
+         
+         String buffer="<div style=\"width: 100%; height: 40px; display: block; float: left; position: relative;\">"
+                 + "<div id=\"workflowPopupX\">x</div> </div>"
+                 + "<h2>File Name :"+request.getParameter("name")+"</h2>"
+                 + "<span>Workflow Name:</span>"
+                 + "<select id=\"workflw\">";
+         
+         for(int i = 0; i < flowid.size(); i++){
+             buffer=buffer+"<option value="+flowid.get(i)+">"+flowname.get(i)+"</option>";
+         }
+         buffer=buffer+"</select>"
+                 + "<span>Comments:</span>"
+                 + "<input type=\"hidden\" value="+request.getParameter("id")+" id=\"fileid\"/>"
+                 + "<textarea name=\"Comments\" cols=\"\" rows=\"\" placeholder=\"Comments\" id=\"comments\"></textarea>"
+                 + "<input  name=\"submit\" value=\"Submit\" type=\"button\" id=\"send\"/>\"";
+                        
+         
+         response.getWriter().write(buffer);
+                    
+                    
+                    
+                        
+                    
+                    
+                    
+                    
+                    
     }
 
     /**

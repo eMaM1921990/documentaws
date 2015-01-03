@@ -134,6 +134,7 @@ public class getDetails extends HttpServlet {
                 }
                 
                 buffer=buffer+"</ul></div><div class=\"clear\"> </div></div></div>";
+                response.getWriter().write(buffer);
 
     }
 

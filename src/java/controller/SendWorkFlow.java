@@ -61,6 +61,7 @@ public class SendWorkFlow extends HttpServlet {
         DefaultHttpClient client=new DefaultHttpClient();
         HttpGet get=new HttpGet("http://documenta-dms.com/DMSWS/api/v1/flow/"+login.getToken()+"/get/"+fileid+"/"+workflow_id+"/"+comments+"/"+login.getUserId());
         client.execute(get);
+        response.getWriter().write("done");
                 
     }
 

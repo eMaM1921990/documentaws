@@ -1011,7 +1011,7 @@ body{
 #previewPopup{
 	margin: 20px auto 0 auto;
 	z-index: 1000000001;
-	display: block;
+	/* display: block; */
 	min-height: 560px;
 	background-color: #fff;
 	border-radius: 10px;

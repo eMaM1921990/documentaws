@@ -163,6 +163,10 @@ $(document).ready(function() {
     }
     $('.info01').on('click', toggleFScreen);
     FCBtn.addEventListener('click', toggleFScreen);
+    
+    
+    $('#actionsButton').on('click', toggleFScreen);
+    FCBtn.addEventListener('click', toggleFScreen);
 
 
 })();
@@ -172,6 +176,9 @@ var filename;
 function data(id,name) {
     fileid = id;
     filename=name;
+    
+    access();
+  
 }
 
 
@@ -198,7 +205,7 @@ function download() {
 }
 function returnedlink() {
     if (xmlHttpdownload.readyState === 4 || xmlHttpdownload.readyState === "complete") {
-       window.open(xmlHttpdownload.responseText,"_blank");
+       window.open(xmlHttpdownload.responseText,"_self");
         
     }
 }
@@ -218,7 +225,8 @@ function preview() {
         alert("Browser does not support XMLHTTP Request");
         return;
     }
-    var url = "getDownloadLink";
+     
+    var url = "getReview";
     
     url += "?id=" + encodeURI(fileid)+"&name="+encodeURI(filename);
     xmlHttp.onreadystatechange = returnedpreview;
@@ -229,6 +237,7 @@ function returnedpreview() {
     if (xmlHttp.readyState === 4 || xmlHttp.readyState === "complete") {
        
        document.getElementById("review").innerHTML=xmlHttp.responseText;
+       
     }
 }
 
@@ -248,16 +257,43 @@ function access() {
         alert("Browser does not support XMLHTTP Request");
         return;
     }
-    var url = "getDownloadLink";
+    
+    
+    var a=document.getElementById("prop");
+    a.href="info.jsp?id="+encodeURI(fileid)+"&name="+encodeURI(filename);
+    
+}
+
+
+
+
+
+
+var xmlHttp;
+
+function workflow() {
+    if (typeof XMLHttpRequest !== "undefined") {
+        xmlHttp = new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject) {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if (xmlHttp === null) {
+        alert("Browser does not support XMLHTTP Request");
+        return;
+    }
+      
+    var url = "getWorkFlow";
     
     url += "?id=" + encodeURI(fileid)+"&name="+encodeURI(filename);
-    xmlHttpmeta.onreadystatechange = returnedaccess;
-    xmlHttpmeta.open("GET", url, true);
-    xmlHttpmeta.send(null);
+    xmlHttp.onreadystatechange = returnedworkflow;
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
 }
-function returnedaccess() {
-    if (xmlHttpmeta.readyState === 4 || xmlHttpmeta.readyState === "complete") {
+function returnedworkflow() {
+    if (xmlHttp.readyState === 4 || xmlHttp.readyState === "complete") {
        
-       document.getElementById("access").innerHTML=xmlHttpmeta.responseText;
+       document.getElementById("workflowPopup").innerHTML=xmlHttp.responseText;
+        
     }
 }
