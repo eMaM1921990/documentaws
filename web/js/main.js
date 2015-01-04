@@ -52,7 +52,7 @@ if(deviceWidth > 1024){
                 }
                 
     */
-    
+    /*
 		 document.body.onclick = function(arg){
                     if(arg.target.getAttribute("id") != "actionsButton"){
                     actionsMenu.style.display = "none";}
@@ -61,7 +61,7 @@ if(deviceWidth > 1024){
 
     arrowback.onclick = function(){
     } 
-		
+	*/	
 
     var generalData = document.getElementById("generalData");
     var whohasaccesData = document.getElementById("whohasaccesData");

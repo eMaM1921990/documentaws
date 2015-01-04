@@ -31,5 +31,6 @@
     };
 
     workflowPopupX.onclick = function(){
+        alert('pressed');
         workflowOverlay.style.display = "none";
     };

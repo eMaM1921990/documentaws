@@ -1111,7 +1111,6 @@ display: block;
 }
 
 #workflowPopup input[type="submit"]{
-float: right;
 background: none repeat scroll 0% 0% #008ED0;
 color: #FFF;
 border: 1px solid #166496;
@@ -1124,7 +1123,7 @@ box-sizing: border-box;
 font-family: open_sansreg;
 cursor: pointer;
 border-radius: 8px;
-margin: 10px 20px;
+margin: 10px 10px 10px 210px;
 }
 
 .pdl{

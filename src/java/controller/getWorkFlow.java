@@ -70,7 +70,7 @@ public class getWorkFlow extends HttpServlet {
          
          String buffer="<div style=\"width: 100%; height: 40px; display: block; float: left; position: relative;\">"
                  + "<div id=\"workflowPopupX\">x</div> </div>"
-                 + "<h2>File Name :"+request.getParameter("name")+"</h2>"
+                 + "<h2>"+request.getParameter("name")+"</h2>"
                  + "<span>Workflow Name:</span>"
                  + "<select id=\"workflw\">";
          
@@ -81,7 +81,7 @@ public class getWorkFlow extends HttpServlet {
                  + "<span>Comments:</span>"
                  + "<input type=\"hidden\" value="+request.getParameter("id")+" id=\"fileid\"/>"
                  + "<textarea name=\"Comments\" cols=\"\" rows=\"\" placeholder=\"Comments\" id=\"comments\"></textarea>"
-                 + "<input  name=\"submit\" value=\"Submit\" type=\"button\" id=\"send\"/>\"";
+                 + "<input  name=\"submit\" value=\"Submit\" type=\"submit\" id=\"send\"/>\"";
                         
          
          response.getWriter().write(buffer);

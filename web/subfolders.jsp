@@ -222,7 +222,7 @@
                 <li>
                     <div class="row">
                         <div class="in-block float-l">
-                            <span class="<%=files.get(i).substring(files.get(i).lastIndexOf(".") + 1, files.get(i).length())%>"><%=files.get(i)%></span>                        </div>
+                            <span class="<%=files.get(i).substring(files.get(i).lastIndexOf(".") + 1, files.get(i).length())%> "><%=files.get(i)%></span>                        </div>
                         <div class="in-block float-r">
                             <a onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')"  data-info="triger" class="info01"></a>
                         </div>

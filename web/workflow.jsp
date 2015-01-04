@@ -181,7 +181,7 @@
 
 
                         <div class="infoMenu"> 
-                            <span>File Name :</span><span><%=request.getParameter("name")%></span>
+                            <span></span><span><%=request.getParameter("name")%></span>
 
                         </div> <!-- .infoMenu -->
 
