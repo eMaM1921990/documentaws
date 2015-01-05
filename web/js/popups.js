@@ -1,36 +1,37 @@
 // JavaScript Document
 
-    var previewOverlay = document.getElementById("previewOverlay");
-    var previewTriger = document.getElementById("previewTriger");
-    var previewPopup = document.getElementById("previewPopup");
-    var previewPopupX = document.getElementById("previewPopupX");
+var previewOverlay = document.getElementById("previewOverlay");
+var previewTriger = document.getElementById("previewTriger");
+var previewPopup = document.getElementById("previewPopup");
+var previewPopupX = document.getElementById("previewPopupX");
 
+previewOverlay.style.display = "none";
+
+previewTriger.onclick = function() {
+    previewOverlay.style.display = "block";
+    preview();
+};
+
+previewPopupX.onclick = function() {
     previewOverlay.style.display = "none";
+};
 
-    previewTriger.onclick = function(){
-        previewOverlay.style.display ="block";
-        preview();
-    };
+var workflowOverlay = document.getElementById("workflowOverlay");
+var workflowTriger = document.getElementById("workflowTriger");
+var workflowPopup = document.getElementById("workflowPopup");
+var workflowPopupX = document.getElementById("workflowPopupX");
 
-    previewPopupX.onclick = function(){
-        previewOverlay.style.display = "none";
-    };
-	
-    var workflowOverlay = document.getElementById("workflowOverlay");
-    var workflowTriger = document.getElementById("workflowTriger");
-    var workflowPopup = document.getElementById("workflowPopup");
-    var workflowPopupX = document.getElementById("workflowPopupX");
+workflowOverlay.style.display = "none";
 
-    workflowOverlay.style.display = "none";
+workflowTriger.onclick = function() {
 
-    workflowTriger.onclick = function(){
-       
-        workflowOverlay.style.display ="block";
-         workflow();
-        
-    };
+    workflowOverlay.style.display = "block";
+    workflow();
 
-    workflowPopupX.onclick = function(){
-        alert('pressed');
-        workflowOverlay.style.display = "none";
-    };
+};
+
+
+workflowPopupX.onclick = function() {
+    
+      workflowOverlay.style.display = "none";
+};

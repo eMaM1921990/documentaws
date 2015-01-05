@@ -68,9 +68,7 @@ public class getWorkFlow extends HttpServlet {
             flowname = flow.Flowname;
          }
          
-         String buffer="<div style=\"width: 100%; height: 40px; display: block; float: left; position: relative;\">"
-                 + "<div id=\"workflowPopupX\">x</div> </div>"
-                 + "<h2>"+request.getParameter("name")+"</h2>"
+         String buffer="<h2>"+request.getParameter("name")+"</h2>"
                  + "<span>Workflow Name:</span>"
                  + "<select id=\"workflw\">";
          

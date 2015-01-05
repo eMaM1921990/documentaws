@@ -221,8 +221,8 @@
                 %>
                 <li>
                     <div class="row">
-                        <div class="in-block float-l">
-                            <span class="<%=files.get(i).substring(files.get(i).lastIndexOf(".") + 1, files.get(i).length())%> "><%=files.get(i)%></span>                        </div>
+                        <div class="in-block float-l" id="info01menu">
+                            <span class="<%=files.get(i).substring(files.get(i).lastIndexOf(".") + 1, files.get(i).length())%> " ><%=files.get(i)%></span>                        </div>
                         <div class="in-block float-r">
                             <a onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')"  data-info="triger" class="info01"></a>
                         </div>
@@ -251,13 +251,15 @@
         <div id="previewOverlay" >
             <div id="previewPopup"><div style="width: 100%; height: 40px; display: block; float: left; position: relative;"><div id="previewPopupX">x</div></div>
                 <div id="review"></div>
-               
+
             </div>
         </div>  
 
         <div id="workflowOverlay">
             <div id="workflowPopup">
-
+                <div style="width: 100%; height: 40px; display: block; float: left; position: relative;">
+                    <div id="workflowPopupX">x</div> </div>
+                <div id="workflow"></div>
             </div>
         </div>
 
@@ -279,7 +281,7 @@
                     </div>
                 </div>
                 <ul>
-                  
+
                     <li class="seprator"></li>
                     <li><a href="mainpage.jsp"><i class="fa fa-file"></i>My Documenta</a></li>
                     <li><a href="#"><i class="fa fa-spinner"></i>Workflows</a></li>
@@ -294,24 +296,24 @@
             </nav>
         </div>
 
-            <div class="foverlay overlay-slidedown">
-                <button type="button" class="foverlay-close">Close</button>
+        <div class="foverlay overlay-slidedown">
+            <button type="button" class="foverlay-close">Close</button>
 
-                <nav>
-                    <ul>
-                        <li class="seprator"></li>
-
-
+            <nav>
+                <ul>
+                    <li class="seprator"></li>
 
 
-                        <li onClick="download()"><a style="cursor: pointer">Download</a></li>
-                        <li ><a style="cursor: pointer" href="#" id="prop">Properties</a></li>
-                        <li onClick="preview()" id="previewTriger" ><a style="cursor: pointer">Preview</a></li>
-                        <li id="workflowTriger"><a href="#">Send to Workflow</a></li>
-                        <li class="seprator"></li>
-                    </ul>
-                </nav>
-            </div>
+
+
+                    <li onClick="download()"><a style="cursor: pointer">Download</a></li>
+                    <li ><a style="cursor: pointer" href="#" id="prop">Properties</a></li>
+                    <li onClick="preview()" id="previewTriger" ><a style="cursor: pointer">Preview</a></li>
+                    <li id="workflowTriger"><a href="#">Send to Workflow</a></li>
+                    <li class="seprator"></li>
+                </ul>
+            </nav>
+        </div>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="js/mousetrap.min.js"></script>
         <script src="js/modernizr.custom.js"></script>

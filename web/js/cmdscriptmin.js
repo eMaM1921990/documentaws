@@ -164,6 +164,9 @@ $(document).ready(function() {
     $('.info01').on('click', toggleFScreen);
     FCBtn.addEventListener('click', toggleFScreen);
     
+    $('#info01menu').on('click', toggleFScreen);
+    
+    FCBtn.addEventListener('click', toggleFScreen);
     
     $('#actionsButton').on('click', toggleFScreen);
     FCBtn.addEventListener('click', toggleFScreen);
@@ -293,7 +296,7 @@ function workflow() {
 function returnedworkflow() {
     if (xmlHttp.readyState === 4 || xmlHttp.readyState === "complete") {
        
-       document.getElementById("workflowPopup").innerHTML=xmlHttp.responseText;
+       document.getElementById("workflow").innerHTML=xmlHttp.responseText;
         
     }
 }

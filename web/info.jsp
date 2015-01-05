@@ -300,7 +300,9 @@
 
         <div id="workflowOverlay">
             <div id="workflowPopup">
-
+                 <div style="width: 100%; height: 40px; display: block; float: left; position: relative;">
+                    <div id="workflowPopupX">x</div> </div>
+                <div id="workflow"></div>
             </div>
         </div>
         <div class="foverlay overlay-slidedown">
