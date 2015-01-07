@@ -162,11 +162,12 @@ $(document).ready(function() {
         }
     }
     $('.info01').on('click', toggleFScreen);
+    
+    $('.opens').on('click', toggleFScreen);
+
     FCBtn.addEventListener('click', toggleFScreen);
     
-    $('#info01menu').on('click', toggleFScreen);
-    
-    FCBtn.addEventListener('click', toggleFScreen);
+   
     
     $('#actionsButton').on('click', toggleFScreen);
     FCBtn.addEventListener('click', toggleFScreen);
@@ -297,6 +298,40 @@ function returnedworkflow() {
     if (xmlHttp.readyState === 4 || xmlHttp.readyState === "complete") {
        
        document.getElementById("workflow").innerHTML=xmlHttp.responseText;
+        
+    }
+
+
+}
+
+
+
+var xmlHttp;
+
+function saveworkflow() {
+    if (typeof XMLHttpRequest !== "undefined") {
+        xmlHttp = new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject) {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if (xmlHttp === null) {
+        alert("Browser does not support XMLHTTP Request");
+        return;
+    }
+     
+    
+    var url = "SendWorkFlow";
+    
+    url += "?id=" + encodeURI(document.getElementById('workflw').value)+"&com="+encodeURI(document.getElementById("comments").value)+"&file="+encodeURI(document.getElementById("fileid").value);
+    xmlHttp.onreadystatechange = returnedsavedworkflow;
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
+}
+function returnedsavedworkflow() {
+    if (xmlHttp.readyState === 4 || xmlHttp.readyState === "complete") {
+       
+       document.getElementById("workflowPopupX").click();
         
     }
 }

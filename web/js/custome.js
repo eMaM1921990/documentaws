@@ -14,11 +14,14 @@ function goBack() {
 $(document).ready(function() {
 
     $('#send').click(function() {
+        
         var id = $('#workflw').val();
         var comment=$('#comments').val();
         var file=$('#fileid').val();
         $.get('SendWorkFlow', {id: id,com:comment,fil:file}, function(responseText) {
-            document.getElementById("workflowPopup").style.display = "none";
+            alert('dsdsd');
+          
+            document.getElementById("workflowPopupX").click();
         });
     });
 

@@ -64,8 +64,9 @@
         <link rel="stylesheet" type="text/css" href="css1/normalize.css" />
         <link rel="stylesheet" type="text/css" href="css1/main.css" />
         <link rel="stylesheet" type="text/css" href="css1/style3.css" />
-        <script src="js/custome.js"></script>
+        
         <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="js/custome.js"></script>
         <script type="text/javascript" >
             $(document).ready(function()
             {
@@ -221,7 +222,7 @@
                 %>
                 <li>
                     <div class="row">
-                        <div class="in-block float-l" id="info01menu">
+                        <div onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')" class="in-block float-l opens">
                             <span class="<%=files.get(i).substring(files.get(i).lastIndexOf(".") + 1, files.get(i).length())%> " ><%=files.get(i)%></span>                        </div>
                         <div class="in-block float-r">
                             <a onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')"  data-info="triger" class="info01"></a>
@@ -325,6 +326,7 @@
         <script type="text/javascript" src="js/popups.js"></script>
 
         <script type="text/javascript" src="js/main.js"></script>
+        
     </body>
 
 </html>

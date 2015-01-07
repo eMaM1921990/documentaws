@@ -79,7 +79,7 @@ public class getWorkFlow extends HttpServlet {
                  + "<span>Comments:</span>"
                  + "<input type=\"hidden\" value="+request.getParameter("id")+" id=\"fileid\"/>"
                  + "<textarea name=\"Comments\" cols=\"\" rows=\"\" placeholder=\"Comments\" id=\"comments\"></textarea>"
-                 + "<input  name=\"submit\" value=\"Submit\" type=\"submit\" id=\"send\"/>\"";
+                 + "<input  name=\"submit\" value=\"Submit\" type=\"submit\" id=\"send\" onclick='saveworkflow()'/>\"";
                         
          
          response.getWriter().write(buffer);
