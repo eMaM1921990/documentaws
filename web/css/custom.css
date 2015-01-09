@@ -1050,6 +1050,7 @@ body{
 	display: block;
 	max-width: 380px;
 	min-height: 350px;
+        display:table;
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0 0 20px rgba(255,255,255,0.4);
@@ -1125,8 +1126,8 @@ height: 46px;
 box-sizing: border-box;
 font-family: open_sansreg;
 cursor: pointer;
-border-radius: 8px;
-margin: 10px 10px 10px 210px;
+float: right;
+margin: 10px 18px 20px 0;
 }
 
 .pdl{
