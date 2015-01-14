@@ -88,10 +88,7 @@
                         <div class="row">
                             <p class="top-margin26"><input class="password01 input" type="password" name="password" placeholder="Password" value="<%=pass%>"></p>
                         </div>
-                        <div class="row">
 
-                            <p class="top-margin26"> <label><input class="" type="checkbox" name="remmber" value="on"/> Keep me logged in</label></p>
-                        </div>
                         <div class="row">
 
                             <p class="top-margin26 center-text"><input class="login-btn01 trans01" type="submit" value="Login"></p>
