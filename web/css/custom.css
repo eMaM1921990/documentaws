@@ -817,7 +817,7 @@ width:100%;
 }
 
 .info01 {
-    background: url("../img/actions-button.png") no-repeat scroll center center / 20px 20px transparent;
+    background: url("../img/file-menu.PNG") no-repeat scroll center center / 20px 20px transparent;
     width: 20px !important;
     height: 20px !important;
     line-height: 23px !important;
@@ -1157,6 +1157,30 @@ margin: 10px 18px 20px 0;
     margin: 0px 2%;
 }
 
+.overlay-slidedown .download {
+  padding-left: 20px;
+  background: url(../img/download.png) no-repeat;
+  background-size: 15px;
+  background-position: 0px;
+}
 
+.overlay-slidedown .prop {
+  padding-left: 20px;
+  background: url(../img/prop.png) no-repeat;
+  background-size: 15px;
+  background-position: 0px;
+}
 
+.overlay-slidedown .preview {
+  padding-left: 20px;
+  background: url(../img/preview.png) no-repeat;
+  background-size: 15px;
+  background-position: 0px;
+}
 
+.overlay-slidedown .workflow {
+  padding-left: 20px;
+  background: url(../img/workflow.png) no-repeat;
+  background-size: 15px;
+  background-position: 0px;
+}

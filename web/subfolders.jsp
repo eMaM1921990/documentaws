@@ -307,10 +307,10 @@
 
 
 
-                    <li onClick="download()"><a style="cursor: pointer">Download</a></li>
-                    <li ><a style="cursor: pointer" href="#" id="prop">Properties</a></li>
-                    <li onClick="preview()" id="previewTriger" ><a style="cursor: pointer">Preview</a></li>
-                    <li id="workflowTriger"><a href="#">Send to Workflow</a></li>
+                    <li class="download" onClick="download()"><a style="cursor: pointer">Download</a></li>
+                    <li class="prop" ><a style="cursor: pointer" href="#" id="prop">Properties</a></li>
+                    <li class="preview" onClick="preview()" id="previewTriger" ><a style="cursor: pointer">Preview</a></li>
+                    <li class="workflow" id="workflowTriger"><a href="#">Send to Workflow</a></li>
                     <li class="seprator"></li>
                 </ul>
             </nav>
