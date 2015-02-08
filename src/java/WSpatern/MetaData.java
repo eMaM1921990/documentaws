@@ -38,7 +38,7 @@ public class MetaData {
      public void getMeta(String token,String id){
         try {
             DefaultHttpClient client=new DefaultHttpClient();
-            HttpGet get=new HttpGet("http://documenta-dms.com/DMSWS/api/v1/file/"+token+"/meta_by_id/"+id);
+            HttpGet get=new HttpGet("http://documenta-dms.com/DMSWS/api/v1/attribute/"+token+"/file_attr_list_by_id/"+id);
             HttpResponse response = client.execute(get);
              BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
             String line = "";
@@ -61,20 +61,20 @@ public class MetaData {
         try {
             org.w3c.dom.Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
                     .parse(new InputSource(new StringReader(line)));
-            NodeList response = doc.getElementsByTagName("atribute");
+            NodeList response = doc.getElementsByTagName("docAttrLink");
             if (response.getLength() > 0) {
                 for(int i=0;i<response.getLength();i++){
                     Element err = (Element) response.item(i);
-                    if(err.getElementsByTagName("codAtribut").getLength()>0){
-                        codAtribut.add(err.getElementsByTagName("codAtribut").item(0).getTextContent());
-                    }else{
-                        codAtribut.add("");
-                    }
-                    
-                    if(err.getElementsByTagName("valoare").getLength()>0){
-                        valoare.add(err.getElementsByTagName("valoare").item(0).getTextContent());
+                    if(err.getElementsByTagName("value").getLength()>0){
+                        valoare.add(err.getElementsByTagName("value").item(0).getTextContent());
                     }else{
                         valoare.add("");
+                    }
+                    
+                    if(err.getElementsByTagName("label").getLength()>0){
+                        codAtribut.add(err.getElementsByTagName("label").item(0).getTextContent());
+                    }else{
+                        codAtribut.add("");
                     }
                   
                

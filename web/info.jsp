@@ -264,6 +264,9 @@
                     </div> <!-- .whohasaccesData -->
                     <div id="metadata"> 
                         <ul>
+                            <li><span class="float-l pdl">Name</span><span class="pdr">Code</span></li>
+
+
                             <%for (int i = 0; i < codAtribut.size(); i++) {%>
                             <li> <span class="float-l pdl"><%=codAtribut.get(i)%></span>  <span class="pdr"><%=valoare.get(i)%></span> </li>
                                 <%}%>
