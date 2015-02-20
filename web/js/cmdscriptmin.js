@@ -335,3 +335,30 @@ function returnedsavedworkflow() {
         
     }
 }
+
+
+
+
+function getWorkFlow(steptype){
+      
+     
+     
+     
+     
+    $.get('updatesession',{steptype:steptype},function (responseTex){
+       window.open('viewworkflow.jsp','_self'); 
+    });
+}
+
+
+
+function gethWorkFlow(steptype){
+      
+     
+     
+     
+     
+    $.get('updatesession',{steptype:steptype},function (responseTex){
+       window.open('Hworkflow.jsp','_self'); 
+    });
+}

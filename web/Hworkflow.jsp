@@ -1,20 +1,17 @@
 
+
+<%@page import="WSpatern.getHistoricalWorkflow"%>
+
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Vector"%>
-<%@page import="WSpatern.SubFolderWS"%>
-<%@page import="WSpatern.RootFolderWS"%>
 <%@page import="WSpatern.ValidTokenWS"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-
     ValidTokenWS valid = new ValidTokenWS();
-    RootFolderWS root = new RootFolderWS();
-    SubFolderWS subfldr = new SubFolderWS();
-    List<String> subfoldr = null;
-    List<String> sunfolr_id = null;
-    String Root = "root";
-    String Root_id;
+    getHistoricalWorkflow get_w=new getHistoricalWorkflow();
+    List<String> w_flowid=new ArrayList<String>();
+    List<String> w_flowname=new ArrayList<String>();
     session = request.getSession();
     bean.LoginBeans login = (bean.LoginBeans) session.getAttribute("loginsession");
 
@@ -22,12 +19,10 @@
         valid.TokenStats(login.getToken());
 
         if (valid.valid == true) {
-            root.getRoot(login.getToken());
-            Root = root.Root_folder;
-            Root_id = root.Root_folder_Id;
-            subfldr.getRoot(login.getToken(), Root_id);
-            subfoldr = subfldr.sub_folder;
-            sunfolr_id = subfldr.sub_folder_Id;
+            get_w.getWorkFlow(login.getToken(), login.getStepType());
+            w_flowid=get_w.w_flowid;
+            w_flowname=get_w.w_flowname;
+                    
         } else {
 
             response.sendRedirect(request.getContextPath() + "/Login.jsp");
@@ -37,7 +32,6 @@
 
         response.sendRedirect(request.getContextPath() + "/Login.jsp");
     }
-
 
 %>
 <!DOCTYPE html>
@@ -52,7 +46,7 @@
         <link rel="stylesheet" type="text/css" href="css1/style3.css" />
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" >
-           $(document).ready(function()
+            $(document).ready(function()
             {
                 $(".account").click(function()
                 {
@@ -131,46 +125,6 @@
                     $(".submenuw").hide();
                     $(".accountw").attr('id', '');
                 });
-                
-                
-                
-                
-                   
-                $(".accounth").click(function()
-                {
-                    var X = $(this).attr('id');
-
-                    if (X == 1)
-                    {
-                        $(".submenuh").hide();
-                        $(this).attr('id', '0');
-                    }
-                    else
-                    {
-
-                        $(".submenuh").show();
-                        $(this).attr('id', '1');
-                    }
-
-                });
-
-                //Mouseup textarea false
-                $(".submenuh").mouseup(function()
-                {
-                    return false
-                });
-                $(".accounth").mouseup(function()
-                {
-                    return false
-                });
-
-
-                //Textarea without editing.
-                $(document).mouseup(function()
-                {
-                    $(".submenuh").hide();
-                    $(".accounth").attr('id', '');
-                });
 
             });
 
@@ -185,37 +139,6 @@
                 text-align:left;
             }
             div.submenu
-            {
-                position: absolute;
-                color:#000000;
-                top: -12px;
-                left: -10px;
-                z-index: 100;
-                width: 220px;
-                display: none;
-                margin-left: 10px;
-                padding: 40px 0 5px;
-                border-radius: 6px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-            }
-            
-            div.submenuw
-            {
-                position: absolute;
-                color:#000000;
-                top: -12px;
-                left: -10px;
-                z-index: 100;
-                width: 220px;
-                display: none;
-                margin-left: 10px;
-                padding: 40px 0 5px;
-                border-radius: 6px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-            }
-            
-            
-            div.submenuh
             {
                 position: absolute;
                 color:#000000;
@@ -263,42 +186,6 @@
                 padding-bottom:38px;
                 padding-left:10px;
             }
-            
-            
-            a.accountw {
-                background: url("arrow.png") no-repeat scroll 185px 20px #333;
-                color: #fff;
-                cursor: pointer;
-                display: block;
-                font-size: 16px;
-                height: 28px;
-                line-height: 38px;
-                margin: -11px 0 0 0px;
-                position: absolute;
-                text-decoration: none;
-                width: 220px;
-                z-index: 110;
-                padding-bottom:38px;
-                padding-left:10px;
-            }
-            
-            
-            a.accounth {
-                background: url("arrow.png") no-repeat scroll 185px 20px #333;
-                color: #fff;
-                cursor: pointer;
-                display: block;
-                font-size: 16px;
-                height: 28px;
-                line-height: 38px;
-                margin: -11px 0 0 0px;
-                position: absolute;
-                text-decoration: none;
-                width: 220px;
-                z-index: 110;
-                padding-bottom:38px;
-                padding-left:10px;
-            }
             .root
             {
                 list-style:none;
@@ -321,7 +208,7 @@
         <div class="row bg-col04"> 
             <div class="row">
                 <a href="#" id="trigger-overlay">
-                    <div class="in-block actions float-l">Account Actions</div>
+                    <div class="in-block actions float-l" id="test">Account Actions</div>
                 </a>
                 <div class="in-block float-r">
                     <a href="#"><span class="search"><img src="img/search.png"></span></a>
@@ -334,21 +221,22 @@
                 <li>
                     <div class="row">
                         <div class="in-block">
-                            <a href="#"><span class="folder01"><%=Root%> &nbsp;></span></a>
+                            <a href="#"><span class="folder01"> &nbsp;></span></a>
                         </div>
                     </div>
                 </li>
-                <%for (int i = 0; i < sunfolr_id.size(); i++) {%>
+                <% for(int i=0;i<w_flowid.size();i++){%>
                 <li>
                     <div class="row">
                         <div class="in-block float-l">
-                            <a href="subfolders.jsp?id=<%=sunfolr_id.get(i)%>"><span class="folder01"><%=subfoldr.get(i)%></span></a>
+                            <a href="getWorkflowDetails?id=<%=w_flowid.get(i)%>"><span class="<%=w_flowname.get(i).substring(w_flowname.get(i).lastIndexOf(".") + 1, w_flowname.get(i).length())%> "><%=w_flowname.get(i)%></span></a>
                         </div>
 
                         <div class="clear"></div>
                     </div>
                 </li>
                 <%}%>
+                
 
             </ul>
         </div>
@@ -379,47 +267,7 @@
                     </div>
                     <li class="seprator"></li>
                     <li><a href="mainpage.jsp"><i class="fa fa-file"></i>My Documenta</a></li>
-                    
-                    <div class="dropdown">
-                        <a class="accountw" >
-                            <i class="fa fa-spinner"></i><span>Current Workflows</span>  </a>
-                        <div class="submenuw" style="display: none; ">
-                            <ul class="root">
-                                <li>
-                                    <a onclick="getWorkFlow('INFORMARE')">Information</a>      </li>
-                                <li>
-                                    <a onclick="getWorkFlow('APROBARE')" >Approval</a>      </li>
-                                 <li>
-                                    <a onclick="getWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
-                                  <li>
-                                    <a onclick="getWorkFlow('RESPINS')">Rejected</a>      </li>
-                                  
-                                  <li>
-                                    <a onclick="getWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a class="accounth" >
-                            <i class="fa fa-spinner"></i><span>Historical Workflows</span>  </a>
-                        <div class="submenuh" style="display: none; ">
-                            <ul class="root">
-                                <li>
-                                    <a onclick="gethWorkFlow('INFORMARE')">Information</a>      </li>
-                                <li>
-                                    <a onclick="gethWorkFlow('APROBARE')" >Approval</a>      </li>
-                                 <li>
-                                    <a onclick="gethWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
-                                  <li>
-                                    <a onclick="gethWorkFlow('RESPINS')">Rejected</a>      </li>
-                                  
-                                  <li>
-                                    <a onclick="gethWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
-                                
-                            </ul>
-                        </div>
-                    </div>
+                    <li><a href="#"><i class="fa fa-spinner"></i>Workflows</a></li>
                     <li><a href="#"><i class="fa fa-search"></i>Recent</a></li>
                     <li><a href="#"><i class="fa fa-star"></i>Favoraties</a></li>
                     <li class="seprator"></li>

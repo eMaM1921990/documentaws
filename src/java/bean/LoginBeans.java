@@ -19,6 +19,15 @@ public class LoginBeans implements Serializable{
      private String unitId;
      private String expire;
      private String username;
+     private String steptype;
+     
+     public void setStepType(String s){
+         this.steptype=s;
+     }
+     
+     public String getStepType(){
+         return steptype;
+     }
      
      public void setUserId(String userId){
          this.userId=userId;

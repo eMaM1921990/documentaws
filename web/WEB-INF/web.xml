@@ -32,6 +32,10 @@
         <servlet-name>getWorkFlow</servlet-name>
         <servlet-class>controller.getWorkFlow</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>updatesession</servlet-name>
+        <servlet-class>controller.updatesession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServ</servlet-name>
         <url-pattern>/LoginServ</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>getWorkFlow</servlet-name>
         <url-pattern>/getWorkFlow</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updatesession</servlet-name>
+        <url-pattern>/updatesession</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
