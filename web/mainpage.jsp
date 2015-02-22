@@ -190,7 +190,7 @@
                 color:#000000;
                 top: -12px;
                 left: -10px;
-                z-index: 100;
+                z-index: 9999;
                 width: 220px;
                 display: none;
                 margin-left: 10px;
@@ -205,7 +205,7 @@
                 color:#000000;
                 top: -12px;
                 left: -10px;
-                z-index: 100;
+              z-index: 99999;
                 width: 220px;
                 display: none;
                 margin-left: 10px;
@@ -221,7 +221,7 @@
                 color:#000000;
                 top: -12px;
                 left: -10px;
-                z-index: 100;
+               z-index: 999999;
                 width: 220px;
                 display: none;
                 margin-left: 10px;

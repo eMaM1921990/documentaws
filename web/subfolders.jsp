@@ -68,7 +68,7 @@
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script src="js/custome.js"></script>
         <script type="text/javascript" >
-            $(document).ready(function()
+           $(document).ready(function()
             {
                 $(".account").click(function()
                 {
@@ -105,6 +105,88 @@
                     $(".submenu").hide();
                     $(".account").attr('id', '');
                 });
+                
+                
+                
+                
+                
+                
+                
+                $(".accountw").click(function()
+                {
+                    var X = $(this).attr('id');
+
+                    if (X == 1)
+                    {
+                        $(".submenuw").hide();
+                        $(this).attr('id', '0');
+                    }
+                    else
+                    {
+
+                        $(".submenuw").show();
+                        $(this).attr('id', '1');
+                    }
+
+                });
+
+                //Mouseup textarea false
+                $(".submenuw").mouseup(function()
+                {
+                    return false
+                });
+                $(".accountw").mouseup(function()
+                {
+                    return false
+                });
+
+
+                //Textarea without editing.
+                $(document).mouseup(function()
+                {
+                    $(".submenuw").hide();
+                    $(".accountw").attr('id', '');
+                });
+                
+                
+                
+                
+                   
+                $(".accounth").click(function()
+                {
+                    var X = $(this).attr('id');
+
+                    if (X == 1)
+                    {
+                        $(".submenuh").hide();
+                        $(this).attr('id', '0');
+                    }
+                    else
+                    {
+
+                        $(".submenuh").show();
+                        $(this).attr('id', '1');
+                    }
+
+                });
+
+                //Mouseup textarea false
+                $(".submenuh").mouseup(function()
+                {
+                    return false
+                });
+                $(".accounth").mouseup(function()
+                {
+                    return false
+                });
+
+
+                //Textarea without editing.
+                $(document).mouseup(function()
+                {
+                    $(".submenuh").hide();
+                    $(".accounth").attr('id', '');
+                });
 
             });
 
@@ -124,7 +206,38 @@
                 color:#000000;
                 top: -12px;
                 left: -10px;
-                z-index: 100;
+                z-index: 9999;
+                width: 220px;
+                display: none;
+                margin-left: 10px;
+                padding: 40px 0 5px;
+                border-radius: 6px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+            }
+            
+            div.submenuw
+            {
+                position: absolute;
+                color:#000000;
+                top: -12px;
+                left: -10px;
+              z-index: 99999;
+                width: 220px;
+                display: none;
+                margin-left: 10px;
+                padding: 40px 0 5px;
+                border-radius: 6px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+            }
+            
+            
+            div.submenuh
+            {
+                position: absolute;
+                color:#000000;
+                top: -12px;
+                left: -10px;
+               z-index: 999999;
                 width: 220px;
                 display: none;
                 margin-left: 10px;
@@ -151,6 +264,42 @@
 
             }
             a.account {
+                background: url("arrow.png") no-repeat scroll 185px 20px #333;
+                color: #fff;
+                cursor: pointer;
+                display: block;
+                font-size: 16px;
+                height: 28px;
+                line-height: 38px;
+                margin: -11px 0 0 0px;
+                position: absolute;
+                text-decoration: none;
+                width: 220px;
+                z-index: 110;
+                padding-bottom:38px;
+                padding-left:10px;
+            }
+            
+            
+            a.accountw {
+                background: url("arrow.png") no-repeat scroll 185px 20px #333;
+                color: #fff;
+                cursor: pointer;
+                display: block;
+                font-size: 16px;
+                height: 28px;
+                line-height: 38px;
+                margin: -11px 0 0 0px;
+                position: absolute;
+                text-decoration: none;
+                width: 220px;
+                z-index: 110;
+                padding-bottom:38px;
+                padding-left:10px;
+            }
+            
+            
+            a.accounth {
                 background: url("arrow.png") no-repeat scroll 185px 20px #333;
                 color: #fff;
                 cursor: pointer;
@@ -264,28 +413,65 @@
             </div>
         </div>
 
-        <div class="overlay overlay-slidedown">
+       <div class="overlay overlay-slidedown">
             <button type="button" class="overlay-close">Close</button>
-
             <nav>
-                <div class="dropdown">
-                    <a class="account" >
-                        <span>Profile</span>  </a>
-                    <div class="submenu" style="display: none; ">
-                        <ul class="root">
-                            <li>
-                                <a href="#" >Edit Account</a>      </li>
-                            <li>
-                                <a href="#" >Change Password</a>      </li>
-
-                        </ul>
+                <ul><div class="dropdown">
+                        <a class="account" >
+                            <span>Profile</span>  </a>
+                        <div class="submenu" style="display: none; ">
+                            <ul class="root">
+                                <li>
+                                    <a href="#" >Edit Account</a>      </li>
+                                <li>
+                                    <a href="#" >Change Password</a>      </li>
+                                
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <ul>
-
                     <li class="seprator"></li>
                     <li><a href="mainpage.jsp"><i class="fa fa-file"></i>My Documenta</a></li>
-                    <li><a href="#"><i class="fa fa-spinner"></i>Workflows</a></li>
+                    
+                    <div class="dropdown">
+                        <a class="accountw" >
+                            <i class="fa fa-spinner"></i><span>Current Workflows</span>  </a>
+                        <div class="submenuw" style="display: none; ">
+                            <ul class="root">
+                                <li>
+                                    <a onclick="getWorkFlow('INFORMARE')">Information</a>      </li>
+                                <li>
+                                    <a onclick="getWorkFlow('APROBARE')" >Approval</a>      </li>
+                                 <li>
+                                    <a onclick="getWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
+                                  <li>
+                                    <a onclick="getWorkFlow('RESPINS')">Rejected</a>      </li>
+                                  
+                                  <li>
+                                    <a onclick="getWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a class="accounth" >
+                            <i class="fa fa-spinner"></i><span>Historical Workflows</span>  </a>
+                        <div class="submenuh" style="display: none; ">
+                            <ul class="root">
+                                <li>
+                                    <a onclick="gethWorkFlow('INFORMARE')">Information</a>      </li>
+                                <li>
+                                    <a onclick="gethWorkFlow('APROBARE')" >Approval</a>      </li>
+                                 <li>
+                                    <a onclick="gethWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
+                                  <li>
+                                    <a onclick="gethWorkFlow('RESPINS')">Rejected</a>      </li>
+                                  
+                                  <li>
+                                    <a onclick="gethWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
                     <li><a href="#"><i class="fa fa-search"></i>Recent</a></li>
                     <li><a href="#"><i class="fa fa-star"></i>Favoraties</a></li>
                     <li class="seprator"></li>
