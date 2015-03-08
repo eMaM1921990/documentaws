@@ -171,6 +171,24 @@
                     $(".submenuh").hide();
                     $(".accounth").attr('id', '');
                 });
+                
+                    $(".workflowitems").hide();
+
+    $(".workflowparent").click(function(event) {
+        event.preventDefault();
+
+             $('.workflowitems').slideToggle( "slow");
+
+    });
+    
+                        $(".workflowhitems").hide();
+
+    $(".workflowhparent").click(function(event) {
+        event.preventDefault();
+
+             $('.workflowhitems').slideToggle( "slow");
+
+    });
 
             });
 
@@ -309,6 +327,19 @@
                 border-top:1px solid #dedede;
                 background-color:#fff;
             }
+            
+            ul.workflowhitems li, ul.workflowitems li {
+  list-style-type: square;
+  display: list-item;
+  padding: 0;
+  margin: 0;
+  line-height: initial;
+  margin-left: 35px;
+  height: 25px;
+  vertical-align: middle;
+  font-size: 16px;
+  cursor: pointer;
+}
         </style>
     </head>
     <body class="bg-col03">
@@ -379,8 +410,40 @@
                     </div>
                     <li class="seprator"></li>
                     <li><a href="mainpage.jsp"><i class="fa fa-file"></i>My Documenta</a></li>
-                    
-                    <div class="dropdown">
+<li class="workflowparent"><a href="#"><i class="fa fa-spinner"></i>Workflows</a>
+
+</li>
+                        <ul  class="workflowitems" style="display:none;">
+            <li>
+                <a onclick="getWorkFlow('INFORMARE')">Information</a>      </li>
+            <li>
+                <a onclick="getWorkFlow('APROBARE')" >Approval</a>      </li>
+             <li>
+                <a onclick="getWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
+              <li>
+                <a onclick="getWorkFlow('RESPINS')">Rejected</a>      </li>
+
+              <li>
+                <a onclick="getWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
+    </ul>
+
+                    <li class="workflowhparent"><a href="#"><i class="fa fa-spinner"></i>Workflows History</a>
+
+</li>
+                        <ul  class="workflowhitems" style="display:none;">
+            <li>
+                <a onclick="gethWorkFlow('INFORMARE')">Information</a>      </li>
+            <li>
+                <a onclick="gethWorkFlow('APROBARE')" >Approval</a>      </li>
+             <li>
+                <a onclick="gethWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
+              <li>
+                <a onclick="gethWorkFlow('RESPINS')">Rejected</a>      </li>
+
+              <li>
+                <a onclick="gethWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
+    </ul>
+                    <!--<div class="dropdown">
                         <a class="accountw" >
                             <i class="fa fa-spinner"></i><span>Current Workflows</span>  </a>
                         <div class="submenuw" style="display: none; ">
@@ -399,8 +462,8 @@
                                 
                             </ul>
                         </div>
-                    </div>
-                    <div class="dropdown">
+                    </div> -->
+                    <!--<div class="dropdown">
                         <a class="accounth" >
                             <i class="fa fa-spinner"></i><span>Historical Workflows</span>  </a>
                         <div class="submenuh" style="display: none; ">
@@ -419,7 +482,7 @@
                                 
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                     <li><a href="#"><i class="fa fa-search"></i>Recent</a></li>
                     <li><a href="#"><i class="fa fa-star"></i>Favoraties</a></li>
                     <li class="seprator"></li>
