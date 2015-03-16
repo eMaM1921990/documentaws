@@ -52,7 +52,7 @@
         <link rel="stylesheet" type="text/css" href="css1/style3.css" />
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" >
-           $(document).ready(function()
+            $(document).ready(function()
             {
                 $(".account").click(function()
                 {
@@ -89,13 +89,13 @@
                     $(".submenu").hide();
                     $(".account").attr('id', '');
                 });
-                
-                
-                
-                
-                
-                
-                
+
+
+
+
+
+
+
                 $(".accountw").click(function()
                 {
                     var X = $(this).attr('id');
@@ -131,11 +131,11 @@
                     $(".submenuw").hide();
                     $(".accountw").attr('id', '');
                 });
-                
-                
-                
-                
-                   
+
+
+
+
+
                 $(".accounth").click(function()
                 {
                     var X = $(this).attr('id');
@@ -171,24 +171,24 @@
                     $(".submenuh").hide();
                     $(".accounth").attr('id', '');
                 });
-                
-                    $(".workflowitems").hide();
 
-    $(".workflowparent").click(function(event) {
-        event.preventDefault();
+                $(".workflowitems").hide();
 
-             $('.workflowitems').slideToggle( "slow");
+                $(".workflowparent").click(function(event) {
+                    event.preventDefault();
 
-    });
-    
-                        $(".workflowhitems").hide();
+                    $('.workflowitems').slideToggle("slow");
 
-    $(".workflowhparent").click(function(event) {
-        event.preventDefault();
+                });
 
-             $('.workflowhitems').slideToggle( "slow");
+                $(".workflowhitems").hide();
 
-    });
+                $(".workflowhparent").click(function(event) {
+                    event.preventDefault();
+
+                    $('.workflowhitems').slideToggle("slow");
+
+                });
 
             });
 
@@ -216,14 +216,14 @@
                 border-radius: 6px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
             }
-            
+
             div.submenuw
             {
                 position: absolute;
                 color:#000000;
                 top: -12px;
                 left: -10px;
-              z-index: 99999;
+                z-index: 99999;
                 width: 220px;
                 display: none;
                 margin-left: 10px;
@@ -231,15 +231,15 @@
                 border-radius: 6px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
             }
-            
-            
+
+
             div.submenuh
             {
                 position: absolute;
                 color:#000000;
                 top: -12px;
                 left: -10px;
-               z-index: 999999;
+                z-index: 999999;
                 width: 220px;
                 display: none;
                 margin-left: 10px;
@@ -281,8 +281,8 @@
                 padding-bottom:38px;
                 padding-left:10px;
             }
-            
-            
+
+
             a.accountw {
                 background: url("arrow.png") no-repeat scroll 185px 20px #333;
                 color: #fff;
@@ -299,8 +299,8 @@
                 padding-bottom:38px;
                 padding-left:10px;
             }
-            
-            
+
+
             a.accounth {
                 background: url("arrow.png") no-repeat scroll 185px 20px #333;
                 color: #fff;
@@ -327,19 +327,19 @@
                 border-top:1px solid #dedede;
                 background-color:#fff;
             }
-            
+
             ul.workflowhitems li, ul.workflowitems li {
-  list-style-type: square;
-  display: list-item;
-  padding: 0;
-  margin: 0;
-  line-height: initial;
-  margin-left: 35px;
-  height: 25px;
-  vertical-align: middle;
-  font-size: 16px;
-  cursor: pointer;
-}
+                list-style-type: square;
+                display: list-item;
+                padding: 0;
+                margin: 0;
+                line-height: initial;
+                margin-left: 35px;
+                height: 25px;
+                vertical-align: middle;
+                font-size: 16px;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body class="bg-col03">
@@ -385,119 +385,7 @@
         </div>
 
 
-        <div class="row footer brder-top02 bg-col02 rel">
-            <div class="container center-text copyright rel">
-                <p class="copy">© 2004-2014 Infrasoft</p>
-                <p><a>About</a> | <a>Support</a> | <a>Legal</a></p>
-            </div>
-            <a href="#" class="close"><span>X</span></a>
-        </div>
-        <div class="overlay overlay-slidedown">
-            <button type="button" class="overlay-close">Close</button>
-            <nav>
-                <ul><div class="dropdown">
-                        <a class="account" >
-                            <span>Profile</span>  </a>
-                        <div class="submenu" style="display: none; ">
-                            <ul class="root">
-                                <li>
-                                    <a href="#" >Edit Account</a>      </li>
-                                <li>
-                                    <a href="#" >Change Password</a>      </li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                    <li class="seprator"></li>
-                    <li><a href="mainpage.jsp"><i class="fa fa-file"></i>My Documenta</a></li>
-<li class="workflowparent"><a href="#"><i class="fa fa-spinner"></i>Workflows</a>
-
-</li>
-                        <ul  class="workflowitems" style="display:none;">
-            <li>
-                <a onclick="getWorkFlow('INFORMARE')">Information</a>      </li>
-            <li>
-                <a onclick="getWorkFlow('APROBARE')" >Approval</a>      </li>
-             <li>
-                <a onclick="getWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
-              <li>
-                <a onclick="getWorkFlow('RESPINS')">Rejected</a>      </li>
-
-              <li>
-                <a onclick="getWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
-    </ul>
-
-                    <li class="workflowhparent"><a href="#"><i class="fa fa-spinner"></i>Workflows History</a>
-
-</li>
-                        <ul  class="workflowhitems" style="display:none;">
-            <li>
-                <a onclick="gethWorkFlow('INFORMARE')">Information</a>      </li>
-            <li>
-                <a onclick="gethWorkFlow('APROBARE')" >Approval</a>      </li>
-             <li>
-                <a onclick="gethWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
-              <li>
-                <a onclick="gethWorkFlow('RESPINS')">Rejected</a>      </li>
-
-              <li>
-                <a onclick="gethWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
-    </ul>
-                    <!--<div class="dropdown">
-                        <a class="accountw" >
-                            <i class="fa fa-spinner"></i><span>Current Workflows</span>  </a>
-                        <div class="submenuw" style="display: none; ">
-                            <ul class="root">
-                                <li>
-                                    <a onclick="getWorkFlow('INFORMARE')">Information</a>      </li>
-                                <li>
-                                    <a onclick="getWorkFlow('APROBARE')" >Approval</a>      </li>
-                                 <li>
-                                    <a onclick="getWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
-                                  <li>
-                                    <a onclick="getWorkFlow('RESPINS')">Rejected</a>      </li>
-                                  
-                                  <li>
-                                    <a onclick="getWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
-                                
-                            </ul>
-                        </div>
-                    </div> -->
-                    <!--<div class="dropdown">
-                        <a class="accounth" >
-                            <i class="fa fa-spinner"></i><span>Historical Workflows</span>  </a>
-                        <div class="submenuh" style="display: none; ">
-                            <ul class="root">
-                                <li>
-                                    <a onclick="gethWorkFlow('INFORMARE')">Information</a>      </li>
-                                <li>
-                                    <a onclick="gethWorkFlow('APROBARE')" >Approval</a>      </li>
-                                 <li>
-                                    <a onclick="gethWorkFlow('ATRIBUIRE')" >Allocated</a>      </li>
-                                  <li>
-                                    <a onclick="gethWorkFlow('RESPINS')">Rejected</a>      </li>
-                                  
-                                  <li>
-                                    <a onclick="gethWorkFlow('DELEGARE')" >Delegation of responsibility</a>      </li>
-                                
-                            </ul>
-                        </div>
-                    </div>-->
-                    <li><a href="#"><i class="fa fa-search"></i>Recent</a></li>
-                    <li><a href="#"><i class="fa fa-star"></i>Favoraties</a></li>
-                    <li class="seprator"></li>
-                    <li><a href="Logout">Sign Out</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of service</a></li>
-                    <li><a href="#">Desktop version</a></li>
-                </ul>
-            </nav>
-        </div>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script src="js/mousetrap.min.js"></script>
-        <script src="js/modernizr.custom.js"></script>
-        <script src="js/classie.js"></script>
-        <script src="js/cmdscriptmin.js"></script>
-        <script src="js/custome.js"></script>
+                <jsp:include page="footer_segment.jsp" />
+       
     </body>
 </html>

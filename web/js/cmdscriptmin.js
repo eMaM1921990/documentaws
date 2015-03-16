@@ -219,6 +219,7 @@ function returnedlink() {
 var xmlHttp;
 
 function preview() {
+
     if (typeof XMLHttpRequest !== "undefined") {
         xmlHttp = new XMLHttpRequest();
     }
