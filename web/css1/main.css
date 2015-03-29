@@ -5,7 +5,7 @@
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 ul li { list-style: none; }
 
-body { background: #fff; color: #fff; line-height: 1.25; font-family: 'Lato', 'Avenir Next', Arial, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body { background: #1175B5; color: #fff; line-height: 1.25; font-family: 'Lato', 'Avenir Next', Arial, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 a { color: #2dbaef; text-decoration: none; outline: none; }
 a:hover, a:focus { color: #373e18; }
 

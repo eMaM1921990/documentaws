@@ -70,8 +70,12 @@ if(deviceWidth > 1024){
     var whohasaccesDataTriger = document.getElementById("whohasaccesDataTriger");
     var metadataTriger = document.getElementById("metadataTriger");
     
+    if(whohasaccesData){
     whohasaccesData.style.display="none";
+}
+if(metadata){
     metadata.style.display="none";
+    }
 
     generalDataTriger.onclick = function(){
         console.log("generalDataTriger");
