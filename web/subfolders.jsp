@@ -62,6 +62,8 @@
         <title>Documenta</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/custom.css" rel="stylesheet">
+        <link href="css/mob_files.css" rel="stylesheet">
+        <link href="css/mob_folders.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css1/normalize.css" />
         <link rel="stylesheet" type="text/css" href="css1/main.css" />
@@ -75,7 +77,7 @@
         <div class="row bg-col02 brder-bottom01">
             <div class="container">
                 <div class="logo-bx">
-                    <a href="mainpage.jsp"> <img src="img/Idocumenta_logo.jpg" width="243" height="55"> </a>   </div>
+                    <a href="mainpage.jsp"> <img src="img/documenta_logo_w.png" width="243" height="55"> </a>   </div>
             </div>
         </div>
         <div class="row bg-col04"> 
@@ -114,13 +116,13 @@
 
                 %>
                 <li>
-                    <div class="row">
+                    <div class="row files">
                         <div onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')" class="in-block float-l opens">
                             <span class="<%=css.getCssClass(files.get(i).substring(files.get(i).lastIndexOf(".") + 1, files.get(i).length()))%> " ><%=files.get(i)%></span>  
                         </div>
-                        <div class="in-block float-r">
+                        <%-- <div class="in-block float-r">
                             <a onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')"  data-info="triger" class="info01"></a>
-                        </div>
+                        </div> --%>
                         <div class="clear"></div>
 
 

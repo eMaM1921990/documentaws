@@ -25,8 +25,9 @@
             <button type="button" class="foverlay-close">Close</button>
 
             <nav>
+                <h5>Select what you need</h5>
                 <ul>
-                    <li class="seprator"></li>
+                    
 
 
 
@@ -35,7 +36,7 @@
                     <li class="prop" ><a style="cursor: pointer" href="#" id="prop">Properties</a></li>
                     <li class="preview" onClick="preview()" id="previewTriger" ><a style="cursor: pointer">Preview</a></li>
                     <li class="workflow" id="workflowTriger"><a href="#">Send to Workflow</a></li>
-                    <li class="seprator"></li>
+                    
                 </ul>
             </nav>
         </div>
@@ -111,6 +112,5 @@
         <script src="js/cmdscriptmin.js"></script>
         <script src="js/custome.js"></script>
         <script type="text/javascript" src="js/popups.js"></script>
-         <script type="text/javascript" src="js/main.js"></script>
 
         

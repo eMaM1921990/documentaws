@@ -1,0 +1,21 @@
+.folder01 {   display: inline-block;
+  background-image: url(../img/folder.png);
+  background-repeat: no-repeat;
+  color: #fff;
+  background-position: left center;
+  padding-left: 25px;
+  line-height: 23px;
+  margin: 10px 10px 10px 20px;
+font-weight: bold;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+
+}
+/*.folder01:hover { background-image:url(../img/folder-hover.png); }*/
+
+.listing01 li .in-block.float-l {
+    
+    width: 88%;
+}
+
+.listing01 li {border-bottom:1px solid #c4c4c4; line-height:0; padding:0px 0;}
