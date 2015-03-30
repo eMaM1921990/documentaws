@@ -24,6 +24,15 @@ $(document).ready(function() {
             document.getElementById("workflowPopupX").click();
         });
     });
+    
+    $('#search_btn').click(function (){
+       var item=$('#searchitem').val();
+       var dirid=$('#dirid').val();
+       $.get('search_result',{name:item,dirid:dirid},function(responseText){
+           window.open(xmlHttpdownload.responseText,"_self");
+       });
+    
+    });
 
 });
 

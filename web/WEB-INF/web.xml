@@ -36,6 +36,10 @@
         <servlet-name>updatesession</servlet-name>
         <servlet-class>controller.updatesession</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>search_result</servlet-name>
+        <servlet-class>controller.search_result</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServ</servlet-name>
         <url-pattern>/LoginServ</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>updatesession</servlet-name>
         <url-pattern>/updatesession</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>search_result</servlet-name>
+        <url-pattern>/search_result</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
