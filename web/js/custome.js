@@ -14,24 +14,24 @@ function goBack() {
 $(document).ready(function() {
 
     $('#send').click(function() {
-        
+
         var id = $('#workflw').val();
-        var comment=$('#comments').val();
-        var file=$('#fileid').val();
-        $.get('SendWorkFlow', {id: id,com:comment,fil:file}, function(responseText) {
+        var comment = $('#comments').val();
+        var file = $('#fileid').val();
+        $.get('SendWorkFlow', {id: id, com: comment, fil: file}, function(responseText) {
             alert('dsdsd');
-          
+
             document.getElementById("workflowPopupX").click();
         });
     });
-    
-    $('#search_btn').click(function (){
-       var item=$('#searchitem').val();
-       var dirid=$('#dirid').val();
-       $.get('search_result',{name:item,dirid:dirid},function(responseText){
-           window.open(xmlHttpdownload.responseText,"_self");
-       });
-    
+
+    $('#search_btn').click(function() {
+        var item = $('#searchitem').val();
+        var dirid = $('#dirid').val();
+        $.get('search_result', {name: item, dirid: dirid}, function(responseText) {
+            $('#section_search').html(responseText);
+        });
+
     });
 
 });

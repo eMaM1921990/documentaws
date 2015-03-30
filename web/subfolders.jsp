@@ -86,7 +86,9 @@
                     <div class="in-block actions float-l">Account Actions</div>
                 </a>
                 <div class="in-block float-r">
-                    <a href="#"><span class="search"><img src="img/search.png"></span></a>
+                    <input type="text" id="searchitem"/>
+                    <input type="hidden" id="dirid" value="${param.id}"/>
+                    <a href="#" id="search_btn"><span class="search"><img src="img/search.png"></span></a>
                     <a href="#"><span class="more-act"><img src="img/more-icons.png"></span></a></div>
                 <div class="clear"></div>
             </div>
@@ -100,6 +102,7 @@
                         </div>
                     </div>
                 </li>
+                <div id="section_search">
                 <%for (int i = 0; i < subfoldr.size(); i++) {%>
                 <li>
                     <div class="row">
@@ -133,6 +136,8 @@
 
 
                 <%}%>
+                
+                </div>
             </ul>
         </div>
 
