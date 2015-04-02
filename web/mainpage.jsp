@@ -54,6 +54,7 @@
         <link rel="stylesheet" type="text/css" href="css1/main.css" />
         <link rel="stylesheet" type="text/css" href="css1/style3.css" />
         <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery/main.js"></script>
       <jsp:include page="header_segment.jsp"/>
     </head>
     <body class="bg-col03">
@@ -63,14 +64,32 @@
                     <a href="mainpage.jsp"> <img src="img/documenta_logo_w.png" width="243" height="55"> </a>   </div>
             </div>
         </div>
+        <div class="row breadcrumb">
+  <span>Site &gt; Users &gt; i.adi</span>
+        </div>
+       <div class="row dmsIcons">
+                           <a href="mainpage.jsp"> <img title="Home" src="img/home2.png"></a>
+                            <a href="#" id="openSearch" onclick=""><img title="Search" src="img/search2.png"></a>
+                            <a href="#" id="openUpload" onclick=""><img title="Upload" onclick="" src="img/upload2.png"></a>
+                            <a href="#">  <img title="Add" src="img/add2.png"></a>
+                            <a href="#">  <img title="MetaData" src="img/metadata.png"></a>
+                            <a href="#" style="float:right;" onclick=""> <img id="trigger-overlay" title="Refresh" src="img/setting.png"></a>
+
+                        </div>
+<div class="row bg-col04"> 
+            <div class="row search">
+                
+                                    <input type="text" id="searchitem">
+                    <input type="hidden" id="dirid" value="19782">
+                    <a href="#" id="search_btn"><span class="search"><img src="img/search.png"></span></a>
+                <div class="clear"></div>
+            </div>
+        </div>
+        
         <div class="row bg-col04"> 
-            <div class="row">
-                <a href="#" id="trigger-overlay">
-                    <div class="in-block actions float-l">Account Actions</div>
-                </a>
-                <div class="in-block float-r">
-                                       <a href="#" ><span class="search"><img src="img/search.png"></span></a>
-                    <a href="#"><span class="more-act"><img src="img/more-icons.png"></span></a></div>
+            <div class="row upload">
+                <span>Please select your file: </span>
+                <button>Upload</button>
                 <div class="clear"></div>
             </div>
         </div>

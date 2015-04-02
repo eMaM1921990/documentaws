@@ -292,7 +292,7 @@ input[type="text"], input[type="password"], select {
 	font-family:open_sansreg;
 	font-size:13px;
 	width:100%;
-	line-height:46px;
+	/* line-height:46px; */
 	height:46px;
 }
 .textarea {
@@ -753,9 +753,14 @@ width:100%;
 
 .actions {   white-space: nowrap;font-size:15px; color:#1a1d24; background-image:url(../img/bars-icon.png); background-repeat:no-repeat; background-position: left center; line-height:41px; padding-left: 30px; margin-left:20px;}	
 
-.search { line-height:41px;} .more-act { line-height:41px;} .search img, .more-act img{ vertical-align:middle;}
+.search { 
+    line-height:41px;
+    display:none;
+} 
+
+.more-act { line-height:41px;} .search img, .more-act img{ vertical-align:middle;}
 .more-act{ margin-right:20px;}
-.search { margin-right:30px;}
+
 
 .info01 {
     background: url("../img/file-menu.PNG") no-repeat scroll center center / 20px 20px transparent;
@@ -777,7 +782,7 @@ border-top: 1px solid #ABABAB;
     
 }
 #content{
-background: #1175B5;
+background: #fff;
 }
 
 
@@ -1122,4 +1127,43 @@ margin: 10px 18px 20px 0;
   background: url(../img/workflow.png) no-repeat;
   background-size: 15px;
   background-position: 0px;
+}
+
+.row.breadcrumb span {
+  color: #000;
+  padding: 10px 20px;
+  display: block;
+}
+
+.row.dmsIcons {
+  background-color: #1175B5;
+  padding: 5px 15px 3px 15px;
+}
+
+.row.search input {
+width: 85%;
+float: left;
+margin: 10px 10px 10px 20px;
+height: 20px;
+padding: 0;
+line-height: 0;;
+}
+
+.row.upload {
+    padding: 10px;
+    display:none;
+}
+
+.row.upload span {
+    color: #000;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.row.upload button {
+    background-color: #1175B5;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
 }
