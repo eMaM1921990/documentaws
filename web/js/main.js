@@ -62,7 +62,6 @@ if(deviceWidth > 1024){
     arrowback.onclick = function(){
     } 
 	*/	
-
     var generalData = document.getElementById("generalData");
     var whohasaccesData = document.getElementById("whohasaccesData");
     var metadata = document.getElementById("metadata");
@@ -112,5 +111,9 @@ if(metadata){
         whohasaccesDataTriger.style.background = "#000";
         metadataTriger.style.color = "#fff";
         metadataTriger.style.background = "#2DBAEF";
+    } 
+    
+        OpenSearch.onclick = function(){
+        metadata.style.display = "block";
     } 
 } // Main Finction Ends
