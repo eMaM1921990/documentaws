@@ -70,9 +70,9 @@
         <link rel="stylesheet" type="text/css" href="css1/style3.css" />
 
         <script type="text/javascript" src="js/jquery.min.js"></script>
-                <script type="text/javascript" src="js/jquery/main.js"></script>
+        <script type="text/javascript" src="js/jquery/main.js"></script>
         <script src="js/custome.js"></script>
-     <jsp:include page="header_segment.jsp"/>
+        <jsp:include page="header_segment.jsp"/>
     </head>
     <body class="bg-col03">
         <div class="row bg-col02 brder-bottom01">
@@ -81,28 +81,7 @@
                     <a href="mainpage.jsp"> <img src="img/documenta_logo_w.png" width="243" height="55"> </a>   </div>
             </div>
         </div>
-        <div class="row breadcrumb">
-  <span>Site &gt; Users &gt; i.adi</span>
-        </div>
-        
-       <div class="row dmsIcons">
-                           <a href="mainpage.jsp"> <img title="Home" src="img/home2.png"></a>
-                            <a href="#" id="openSearch" onclick=""><img title="Search" src="img/search2.png"></a>
-                            <a href="#" onclick=""><img title="Upload" onclick="" src="img/upload2.png"></a>
-                            <a href="#">  <img title="Add" src="img/add2.png"></a>
-                            <a href="#">  <img title="MetaData" src="img/metadata.png"></a>
-                            <a href="#" style="float:right;" onclick=""> <img id="trigger-overlay" title="Refresh" src="img/setting.png"></a>
-
-                        </div>
-<div class="row bg-col04"> 
-            <div class="row search">
-                
-                                    <input type="text" id="searchitem">
-                    <input type="hidden" id="dirid" value="19782">
-                    <a href="#" id="search_btn"><span class="search"><img src="img/search.png"></span></a>
-                <div class="clear"></div>
-            </div>
-        </div>
+        <jsp:include page="navigation.jsp"/>
         <div id="content" class="row">
             <ul id="triggerInfoOverlay" class="list listing01"> <!-- Ul to detect click events -->
                 <li>
@@ -113,46 +92,46 @@
                     </div>
                 </li>
                 <div id="section_search">
-                <%for (int i = 0; i < subfoldr.size(); i++) {%>
-                <li>
-                    <div class="row">
-                        <div class="in-block float-l">
-                            <a href="subfolders.jsp?id=<%=sunfolr_id.get(i)%>"><span class="folder01"><%=subfoldr.get(i)%></span></a>
+                    <%for (int i = 0; i < subfoldr.size(); i++) {%>
+                    <li>
+                        <div class="row">
+                            <div class="in-block float-l">
+                                <a href="subfolders.jsp?id=<%=sunfolr_id.get(i)%>"><span class="folder01"><%=subfoldr.get(i)%></span></a>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+                    <%}%>
+
+                    <%for (int i = 0; i < files.size(); i++) {
+
+                    %>
+                    <li>
+                        <div class="row files">
+                            <div onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')" class="in-block float-l opens">
+                                <span class="<%=css.getCssClass(files.get(i).substring(files.get(i).lastIndexOf(".") + 1, files.get(i).length()))%> " ><%=files.get(i)%></span>  
+                            </div>
+                            <%-- <div class="in-block float-r">
+                                <a onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')"  data-info="triger" class="info01"></a>
+                            </div> --%>
+                            <div class="clear"></div>
+
+
                         </div>
 
-                        <div class="clear"></div>
-                    </div>
-                </li>
-                <%}%>
 
-                <%for (int i = 0; i < files.size(); i++) {
-
-                %>
-                <li>
-                    <div class="row files">
-                        <div onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')" class="in-block float-l opens">
-                            <span class="<%=css.getCssClass(files.get(i).substring(files.get(i).lastIndexOf(".") + 1, files.get(i).length()))%> " ><%=files.get(i)%></span>  
-                        </div>
-                        <%-- <div class="in-block float-r">
-                            <a onclick="data('<%=files_id.get(i)%>', '<%=files.get(i)%>')"  data-info="triger" class="info01"></a>
-                        </div> --%>
-                        <div class="clear"></div>
+                    </li>
 
 
-                    </div>
+                    <%}%>
 
-
-                </li>
-
-
-                <%}%>
-                
                 </div>
             </ul>
         </div>
 
-                <jsp:include page="footer_segment.jsp"/>
-                    
+        <jsp:include page="footer_segment.jsp"/>
+
     </body>
 
 </html>

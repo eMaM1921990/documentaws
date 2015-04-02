@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,8 +30,8 @@ import org.xml.sax.SAXException;
  * @author emam
  */
 public class Search {
-      public static Vector<String> files=new Vector<String>();
-    public static Vector<String> files_Id=new Vector<String>();
+      public static List<String> files=new ArrayList<>();
+    public static List<String> files_Id=new ArrayList<>();
      public void getFile(String token,String id,String search){
         try {
             DefaultHttpClient client=new DefaultHttpClient();
@@ -49,8 +51,8 @@ public class Search {
     
     }
      private void parseXML(String line) {
-         files.removeAllElements();
-         files_Id.removeAllElements();
+         files.clear();
+         files_Id.clear();
         try {
             org.w3c.dom.Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
                     .parse(new InputSource(new StringReader(line)));

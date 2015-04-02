@@ -1,16 +1,18 @@
 
+<%@page import="utils.CssClass"%>
+<%@page import="WSpatern.Search"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Vector"%>
-<%@page import="WSpatern.SubFolderWS"%>
 <%@page import="WSpatern.RootFolderWS"%>
 <%@page import="WSpatern.ValidTokenWS"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    CssClass css = new CssClass();
 
     ValidTokenWS valid = new ValidTokenWS();
     RootFolderWS root = new RootFolderWS();
-    SubFolderWS subfldr = new SubFolderWS();
+    Search subfldr = new Search();
     List<String> subfoldr = null;
     List<String> sunfolr_id = null;
     String Root = "root";
@@ -21,14 +23,7 @@
     if (login.getToken() != null || !login.getToken().isEmpty()) {
         valid.TokenStats(login.getToken());
 
-        if (valid.valid == true) {
-            root.getRoot(login.getToken());
-            Root = root.Root_folder;
-            Root_id = root.Root_folder_Id;
-            subfldr.getRoot(login.getToken(), Root_id);
-            subfoldr = subfldr.sub_folder;
-            sunfolr_id = subfldr.sub_folder_Id;
-        } else {
+        if (valid.valid != true) {
 
             response.sendRedirect(request.getContextPath() + "/Login.jsp");
         }
@@ -54,7 +49,6 @@
         <link rel="stylesheet" type="text/css" href="css1/main.css" />
         <link rel="stylesheet" type="text/css" href="css1/style3.css" />
         <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/jquery/main.js"></script>
         <jsp:include page="header_segment.jsp"/>
     </head>
     <body class="bg-col03">
@@ -65,36 +59,15 @@
             </div>
         </div>
         <jsp:include page="navigation.jsp"/>
-
-        <div class="row bg-col04"> 
-            <div class="row upload">
-                <span>Please select your file: </span>
-                <button>Upload</button>
-                <div class="clear"></div>
-            </div>
-        </div>
         <div id="content" class="row">
-            <ul class="list listing01">
-                <li>
-                    <div class="row">
-                        <div class="in-block">
-                            <a href="#"><span style=" white-space: nowrap; " class="folder01"><%=Root%> &nbsp;></span></a>
-                        </div>
-                    </div>
-                </li>
-                <%for (int i = 0; i < sunfolr_id.size(); i++) {%>
-                <li>
-                    <div class="row">
-                        <div class="in-block float-l">
-                            <a href="subfolders.jsp?id=<%=sunfolr_id.get(i)%>"><span class="folder01"><%=subfoldr.get(i)%></span></a>
-                        </div>
+            <form enctype='multipart/form-data' method="post" action="http://documenta-dms.com/DMSWS/api/v1/file/upload">
+                <input type="hidden" name="dirId" value="${param.id}"/>
+                <input type="hidden" name="token" value="<%=login.getToken()%>"/>
 
-                        <div class="clear"></div>
-                    </div>
-                </li>
-                <%}%>
-
-            </ul>
+                <input type="hidden" name="userId" value="<%=login.getUserId()%>"/>
+                File : <input type="file" name="fileData"/>
+                <input type="submit" name="send" value="send"/>
+            </form>
         </div>
 
 

@@ -92,17 +92,7 @@
                     <a href="mainpage.jsp"> <img src="img/documenta_logo_w.png" width="243" height="55"> </a>   </div>
             </div>
         </div>
-        <div class="row bg-col04"> 
-            <div class="row">
-                <a href="#" id="trigger-overlay">
-                    <div class="in-block actions float-l">Account Actions</div>
-                </a>
-                <div class="in-block float-r">
-                    <a href="#"><span class="search"><img src="img/search.png"></span></a>
-                    <a href="#"><span class="more-act"><img src="img/more-icons.png"></span></a></div>
-                <div class="clear"></div>
-            </div>
-        </div>
+        <jsp:include page="navigation.jsp"/>
         <div id="content" class="row">
             <div class="fileInfo"> 
                 <div class="fixed-div">
