@@ -60,7 +60,7 @@
         </div>
         <jsp:include page="navigation.jsp"/>
         <div id="content" class="row">
-            <form enctype='multipart/form-data' method="post" action="http://documenta-dms.com/DMSWS/api/v1/file/upload">
+            <form enctype='multipart/form-data' method="post" action="https://documenta-dms.com/DMSWS/api/v1/file/upload/" >
                 <input type="hidden" name="dirId" value="${param.id}"/>
                 <input type="hidden" name="token" value="<%=login.getToken()%>"/>
 

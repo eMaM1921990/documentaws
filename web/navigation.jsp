@@ -1,3 +1,5 @@
+
+
 <div class="row breadcrumb">
             <span>Site &gt; Users &gt; i.adi</span>
         </div>
@@ -5,7 +7,7 @@
             <a href="mainpage.jsp"> <img title="Home" src="img/home2.png"></a>
             <a href="#" id="openSearch" onclick=""><img title="Search" src="img/search2.png"></a>
             <a href="#" id="openUpload" onclick=""><img title="Upload" onclick="" src="img/upload2.png"></a>
-            <a href="upload.jsp">  <img title="Add" src="img/add2.png"></a>
+            <a href="upload.jsp?id=${param.id}">  <img title="Add" src="img/add2.png"></a>
             <a href="#">  <img title="MetaData" src="img/metadata.png"></a>
             <a href="#" style="float:right;" onclick=""> <img id="trigger-overlay" title="Refresh" src="img/setting.png"></a>
 
